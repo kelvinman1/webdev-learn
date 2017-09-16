@@ -1,45 +1,46 @@
-function getRandom(max)
-{
+function getRandom (max) {
   return parseInt(Math.random() * max);
 }
 
-const n = 10;
+const maxSizeArray = 10;
 
-function findValue(arr, i, value)
-{
-	if (arr[i] == value)
+function findValue (array, i, value) {
+	if (array[i] == value) {
 		return true;
+	}
 	
-	if (i + 1 >= n)
+	if (i + 1 >= maxSizeArray) {
 		return false;
+	}
 	
-	findValue(arr, i + 1, value);
+	findValue(array, i + 1, value);
 }
 
-var a = [];
-var out = '';
-for (i = 0; i < n; i++){
-	a[i] = getRandom(15);
-	out += a[i] + ' ';
+var randomArray = [];
+var output = '';
+for (i = 0; i < maxSizeArray; i++) {
+	randomArray[i] = getRandom(15);
+	output += randomArray[i] + ' ';
 }
 console.log('Filled random array: ');
-console.log(out);
+console.log(output);
 
-(function ()
-{
-	out = '';
+(function () {
+	output = '';
 	var isFound = false;
-	const k = prompt('Введите искомое число:', 0);
-	if ((k == 0 || k ^ 0 == k) && k >= 0) ;
-	else{
+	const searchValue = prompt('Введите искомое число:', 0);
+	
+	if (!((searchValue == 0 || searchValue ^ 0 == searchValue) && searchValue >= 0)) {
 		alert('Вводимое число не является положительным целым числом!');
 		return;
 	}
 	
-	if (findValue(a, 0, k))
-		out = 'Element ' + k + ' is found!';
-	else
-		out = 'Element ' + k + ' not found!';
+	if (findValue(randomArray, 0, parseInt(searchValue))) {
+		output = 'Element ' + searchValue + ' is found!';
+	}
+	else {
+		output = 'Element ' + searchValue + ' not found!';
+	}
 	
-	console.log(out);
+	console.log(output);
 })();
