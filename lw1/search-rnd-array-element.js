@@ -13,7 +13,7 @@ function findValue (array, i, value) {
 		return false;
 	}
 	
-	findValue(array, i + 1, value);
+	return findValue(array, i + 1, value);
 }
 
 var randomArray = [];
