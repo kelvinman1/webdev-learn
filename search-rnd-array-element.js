@@ -14,9 +14,9 @@ console.log(out);
 
 out = '';
 var isFound = false;
-let k = getRandom(15);
+let k = prompt('Введите искомое число:', 0);
 for (i = 0; i < n; i++){
-	if (a[i] = k){
+	if (a[i] == k){
 		isFound = true;
 		out = 'Element ' + k + ' is found!';
 		break;
