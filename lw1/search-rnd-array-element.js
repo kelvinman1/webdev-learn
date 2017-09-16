@@ -27,10 +27,9 @@ console.log(output);
 
 (function () {
 	output = '';
-	var isFound = false;
-	const searchValue = prompt('Введите искомое число:', 0);
+	const searchValue = parseInt(prompt('Введите искомое число:', 0));
 	
-	if (!((searchValue == 0 || searchValue ^ 0 == searchValue) && searchValue >= 0)) {
+	if (isNaN(searchValue) || searchValue < 0) {
 		alert('Вводимое число не является положительным целым числом!');
 		return;
 	}
