@@ -34,7 +34,33 @@ console.log(output);
     return;
   }
   
-  if (findValue(randomArray, 0, parseInt(searchValue))) {
+  var isFound = false;
+  
+  const way = 2;
+  
+  if (way == 0) {
+    isFound = findValue(randomArray, 0, parseInt(searchValue));
+  }
+  else if (way == 1) {
+    randomArray.forEach(function (value) {
+      if (value == searchValue) {
+        isFound = true;
+        output = 'Element ' + searchValue + ' is found!';
+        return false;
+      }
+    });
+  }
+  else if (way == 2) {
+    for (i = 0; i < maxSizeArray; i++) {
+      if (randomArray[i] == searchValue) {
+        isFound = true;
+        output = 'Element ' + searchValue + ' is found!';
+        break;
+      }
+    }
+  }
+  
+  if (isFound) {
     output = 'Element ' + searchValue + ' is found!';
   }
   else {
