@@ -22,13 +22,13 @@ console.log(out);
 		return;
 	}
 	
-	for (i = 0; i < n; i++){
-		if (a[i] == k){
+	a.forEach(function (value, index, array){
+		if (value == k){
 			isFound = true;
 			out = 'Element ' + k + ' is found!';
-			break;
+			return false;
 		}
-	}
+	});
 	if (!isFound){
 		out = 'Element ' + k + ' not found!';
 	}
