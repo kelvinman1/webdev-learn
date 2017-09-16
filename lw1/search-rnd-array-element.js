@@ -27,7 +27,7 @@ console.log(output);
 
 (function () {
   output = '';
-  const searchValue = parseInt(prompt('Введите искомое число:', 0));
+  const searchValue = +prompt('Введите искомое число:', 0);
   
   if (isNaN(searchValue) || searchValue < 0) {
     alert('Вводимое число не является положительным целым числом!');
