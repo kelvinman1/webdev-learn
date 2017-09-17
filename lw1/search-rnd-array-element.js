@@ -27,40 +27,32 @@ console.log(output);
 
 (function () {
   output = '';
-  const searchValue = +prompt('Введите искомое число:', 0);
+  let searchValue = prompt('Введите искомое число:', 0);
+  if (searchValue === null){
+    alert('Произведена отмена!');
+    return;
+  }
+  searchValue = searchValue.split('');
+  let clearedSearchValue = '';
+  searchValue.forEach(function (ch) {
+    if (ch != ' ') {
+      clearedSearchValue += ch;
+    }
+  });
+  
+  if (clearedSearchValue === '') {
+    alert('Вводимое значение не является положительным целым числом!');
+    return;
+  }
+	
+  searchValue = +clearedSearchValue;
   
   if (isNaN(searchValue) || searchValue < 0) {
-    alert('Вводимое число не является положительным целым числом!');
+    alert('Вводимое значение не является положительным целым числом!');
     return;
   }
   
-  var isFound = false;
-  
-  const way = 2;
-  
-  if (way == 0) {
-    isFound = findValue(randomArray, 0, parseInt(searchValue));
-  }
-  else if (way == 1) {
-    randomArray.forEach(function (value) {
-      if (value == searchValue) {
-        isFound = true;
-        output = 'Element ' + searchValue + ' is found!';
-        return false;
-      }
-    });
-  }
-  else if (way == 2) {
-    for (i = 0; i < maxSizeArray; i++) {
-      if (randomArray[i] == searchValue) {
-        isFound = true;
-        output = 'Element ' + searchValue + ' is found!';
-        break;
-      }
-    }
-  }
-  
-  if (isFound) {
+  if (findValue(randomArray, 0, parseInt(searchValue))) {
     output = 'Element ' + searchValue + ' is found!';
   }
   else {
