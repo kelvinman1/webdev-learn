@@ -23,6 +23,7 @@ content > * {
   max-width: 750px;
   margin: auto;
   padding-bottom: 27px;
+  padding-right: 150px;
 }
 
 h3{
@@ -73,4 +74,29 @@ li{
 
 ol{
   padding-top: 20px;
+}
+
+footer{
+  background: #2d3337;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  height: 64px;
+  margin-top: 143px;
+}
+
+footer > span{
+  line-height: 64px;
+  padding-left: 60px;
+}
+
+footer > span > a{
+  padding-left: 26px;
+  text-decoration: underline;
+  color: #4d5c69;
+}
+
+.select_language{
+  float: right;
+  padding-right: 51px;
 }
