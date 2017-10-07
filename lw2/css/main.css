@@ -53,6 +53,11 @@ p{
   padding-bottom: 25px;
 }
 
+a{
+  color: #1a8bf0;
+  text-decoration: none;
+}
+
 h2{
   font-size: 1.6rem;
   font-weight: 400;
