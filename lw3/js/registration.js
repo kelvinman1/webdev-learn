@@ -6,10 +6,10 @@ function validEmail(email){
 class RegistrationForm {
   constructor(form_element) {
     this.form = form_element;
-    this.form_email = form_element.getElementsByClassName('form_email')[0].value;
-    this.form_password = form_element.getElementsByClassName('form_password')[0].value;
-    this.form_password_repeat = form_element.getElementsByClassName('form_password_repeat')[0].value;
-    this.form_checkbox = form_element.getElementsByClassName('form_checkbox')[0].checked;
+    this.form_email = $(form_element).find('.form_email').val();
+    this.form_password = $(form_element).find('.form_password').val();
+    this.form_password_repeat = $(form_element).find('.form_password_repeat').val();
+    this.form_checkbox = $(form_element).find('.form_checkbox').prop('checked');
   }
   validate() {
     if (!validEmail(this.form_email)){
@@ -42,15 +42,14 @@ class RegistrationForm {
   }
 }
 
-var submit_registration = document.getElementById('submit_registration');
-submit_registration.onclick = function () {
-  var form = new RegistrationForm(document.getElementsByClassName('auth_form')[0]);
+$('#submit_registration').on('click', function () {
+  var form = new RegistrationForm($('.auth_form')[0]);
   if (form.validate())
     form.success();
   else
     form.error();
   return false;
-};
+});
 
 
 
