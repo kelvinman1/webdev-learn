@@ -3,3 +3,27 @@
   width: 500px;
   padding-top: 100px;
 }
+
+.auth_form label{
+  display: block;
+  font-size: 1.1em;
+  margin-bottom: 2px;
+  margin-top: 11px;
+}
+
+.auth_form input{
+  width: 100%;
+  font-size: 1.2em;
+}
+
+.auth_form input[type="checkbox"]{
+  width: 12px;
+}
+
+body{
+  font-family: -apple-system,BlinkMacSystemFont,Roboto,Open Sans,Helvetica Neue,sans-serif;
+}
+
+button{
+  margin-top: 10px;
+}
