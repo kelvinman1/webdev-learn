@@ -42,7 +42,7 @@ class RegistrationForm {
   }
 }
 
-document.getElementById('submit_registration').onclick = function () {
+document.querySelector('.auth_form').onsubmit = function () {
   var form = new RegistrationForm(document.getElementsByClassName('auth_form')[0]);
   if (form.validate()) {
     form.success();
