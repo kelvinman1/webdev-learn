@@ -4,31 +4,31 @@ function validEmail(email){
 }
 
 class RegistrationForm {
-  constructor(form_element) {
-    this.form = form_element;
-    this.form_email = $(form_element).find('.form_email').val();
-    this.form_password = $(form_element).find('.form_password').val();
-    this.form_password_repeat = $(form_element).find('.form_password_repeat').val();
-    this.form_checkbox = $(form_element).find('.form_checkbox').prop('checked');
+  constructor(formElement) {
+    this.form = formElement;
+    this.formEmail = $(formElement).find('.form_email').val();
+    this.formPassword = $(formElement).find('.form_password').val();
+    this.formPasswordRepeat = $(formElement).find('.form_password_repeat').val();
+    this.formCheckbox = $(formElement).find('.form_checkbox').prop('checked');
   }
   validate() {
-    if (!validEmail(this.form_email)){
-      this.error_msg = 'Не корректный email!';
+    if (!validEmail(this.formEmail)){
+      this.errorMsg = 'Не корректный email!';
       return false;
     }
     
-    if (this.form_password.length < 6){
-      this.error_msg = 'Пароль должен быть длиннее 6 символов!';
+    if (this.formPassword.length < 6){
+      this.errorMsg = 'Пароль должен быть длиннее 6 символов!';
       return false;
     }
     
-    if (this.form_password !== this.form_password_repeat){
-      this.error_msg = 'Пароль не совпадает!';
+    if (this.formPassword !== this.formPasswordRepeat){
+      this.errorMsg = 'Пароль не совпадает!';
       return false;
     }
     
-    if (!this.form_checkbox){
-      this.error_msg = 'Вы не согласны с правилами сайта!';
+    if (!this.formCheckbox){
+      this.errorMsg = 'Вы не согласны с правилами сайта!';
       return false;
     }
     
@@ -38,16 +38,18 @@ class RegistrationForm {
     alert('Вы зарегистрированы.');
   }
   error() {
-    alert(this.error_msg);
+    alert(this.errorMsg);
   }
 }
 
-$('#submit_registration').on('click', function () {
-  var form = new RegistrationForm($('.auth_form')[0]);
-  if (form.validate())
+$('.auth_form').on('submit', function () {
+  var form = new RegistrationForm(document.getElementsByClassName('auth_form')[0]);
+  if (form.validate()) {
     form.success();
-  else
+  }
+  else {
     form.error();
+  }
   return false;
 });
 
