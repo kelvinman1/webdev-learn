@@ -42,8 +42,8 @@ class RegistrationForm {
   }
 }
 
-$('.auth_form').on('submit', function () {
-  var form = new RegistrationForm(document.getElementsByClassName('auth_form')[0]);
+$('.registration_form').on('submit', function () {
+  var form = new RegistrationForm(document.getElementsByClassName('registration_form')[0]);
   if (form.validate()) {
     form.success();
   }
