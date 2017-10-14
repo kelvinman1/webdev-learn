@@ -1,4 +1,4 @@
-function validEmail(email){
+function validEmail(email) {
   var pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
   return pattern.test(email);
 }
@@ -12,22 +12,22 @@ class RegistrationForm {
     this.formCheckbox = formElement.getElementsByClassName('form_checkbox')[0].checked;
   }
   validate() {
-    if (!validEmail(this.formEmail)){
+    if (!validEmail(this.formEmail)) {
       this.errorMsg = 'Не корректный email!';
       return false;
     }
     
-    if (this.formPassword.length < 6){
+    if (this.formPassword.length < 6) {
       this.errorMsg = 'Пароль должен быть длиннее 6 символов!';
       return false;
     }
     
-    if (this.formPassword !== this.formPasswordRepeat){
+    if (this.formPassword !== this.formPasswordRepeat) {
       this.errorMsg = 'Пароль не совпадает!';
       return false;
     }
     
-    if (!this.formCheckbox){
+    if (!this.formCheckbox) {
       this.errorMsg = 'Вы не согласны с правилами сайта!';
       return false;
     }
@@ -42,8 +42,8 @@ class RegistrationForm {
   }
 }
 
-document.querySelector('.auth_form').onsubmit = function () {
-  var form = new RegistrationForm(document.getElementsByClassName('auth_form')[0]);
+document.querySelector('.registration_form').onsubmit = function () {
+  var form = new RegistrationForm(document.getElementsByClassName('registration_form')[0]);
   if (form.validate()) {
     form.success();
   }
